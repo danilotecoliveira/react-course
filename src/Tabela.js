@@ -13,27 +13,22 @@ const TableHead = () => {
     );
 }
 
-const TableBody = () => {
+const TableBody = (props) => {
+
+    const linhas = props.autores.map((linha, index) => {
+        return (
+            <tr>
+                <td>{linha.nome}</td>
+                <td>{linha.livro}</td>
+                <td>{linha.preco}</td>
+                <td><button>Remover</button></td>
+            </tr>
+        );
+    });
+
     return (
         <tbody>
-            <tr>
-                <td>Paulo</td>
-                <td>React</td>
-                <td>1000</td>
-                <td><button>Remover</button></td>
-            </tr>
-            <tr>
-                <td>Nico</td>
-                <td>React</td>
-                <td>1000</td>
-                <td><button>Remover</button></td>
-            </tr>
-            <tr>
-                <td>Daniel</td>
-                <td>React</td>
-                <td>1000</td>
-                <td><button>Remover</button></td>
-            </tr>
+            {linhas}
         </tbody>
     );
 }
@@ -41,10 +36,14 @@ const TableBody = () => {
 class Tabela extends Component {
 
     render() {
+        
+        // destructuring
+        const { autores } = this.props;
+
         return (
             <table>
                 <TableHead />
-                <TableBody />
+                <TableBody autores = { autores } />
             </table>
         );
     }
