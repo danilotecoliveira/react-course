@@ -7,7 +7,10 @@ class Formulario extends Component {
         
         super(props);
 
-        this.validador = new FormValidator();
+        this.validador = new FormValidator({
+            campo: 'nome',
+            metodo: 'isEmpty'
+        });
 
         this.stateInicial = {
             nome: '',
@@ -31,8 +34,6 @@ class Formulario extends Component {
         if (this.validador.valida(this.state)) {
             this.props.escutadorDeSubmit(this.state);
             this.setState(this.stateInicial);
-        } else {
-            console.log('Submit bloqueado');
         }
     }
 
