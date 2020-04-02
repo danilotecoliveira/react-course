@@ -62,7 +62,7 @@ class Livros extends Component {
             </div>
         </Fragment>
     );
-}
+  }
 }
 
 export default Livros;
