@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FormValidator from './FormValidator';
+import PopUp from './PopUp';
 
 class Formulario extends Component {
 
@@ -56,6 +57,8 @@ class Formulario extends Component {
         if (validacao.isValid) {
             this.props.escutadorDeSubmit(this.state);
             this.setState(this.stateInicial);
+
+            //PopUp.exibeMensagem('success', 'Incuído com sucesso')
         } else {
             const {nome, livro, preco} = validacao;
             const campos = [nome, livro, preco];
@@ -63,7 +66,10 @@ class Formulario extends Component {
             const camposInvalidos = campos.filter(elem => {
                 return elem.isInvalid;
             });
-            camposInvalidos.forEach(console.log);
+            
+            camposInvalidos.forEach(campo => {
+                PopUp.exibeMensagem('error', campo.message)
+            });
         }
     }
 
