@@ -7,7 +7,7 @@ import Header from '../../Components/Header/Header';
 import PopUp from '../../Utils/PopUp';
 import ApiService from '../../Utils/ApiService';
 
-class App extends Component {
+class Home extends Component {
 
   constructor(props) {
     
@@ -71,4 +71,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;
