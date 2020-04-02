@@ -5,32 +5,12 @@ import Tabela from './Tabela';
 import Formulario from './Formulario';
 import Header from './Header';
 import PopUp from './PopUp';
+import ApiService from './ApiService';
 
 class App extends Component {
 
   state = {
-    autores: [
-      {
-        nome: 'Paulo',
-        livro: 'React',
-        preco: '1000'
-      },
-      {
-        nome: 'Daniel',
-        livro: 'Java',
-        preco: '99'
-      },
-      {
-        nome: 'Marcos',
-        livro: 'Design',
-        preco: '150'
-      },
-      {
-        nome: 'Bruno',
-        livro: 'DevOps',
-        preco: '100'
-      }
-    ],
+    autores: [],
   };
 
   removeAutor = (index) =>{
@@ -56,6 +36,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <Fragment>
         <Header />
